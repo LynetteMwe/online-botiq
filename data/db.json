@@ -1,0 +1,22 @@
+{
+ "products":[
+  {
+   "id":1,
+   "name":"Dress",
+   "price":"1400",
+   "image":"https://images.unsplash.com/photo-1589212987511-4a924cb9d8ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80" 
+  },
+  {
+   "id":2,
+   "name":"Nike Shoe",
+   "price":"2600",
+   "image":"https://images.unsplash.com/photo-1588099768531-a72d4a198538?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+  },
+  {
+   "id":3,
+   "name":"Shell-earrings",
+   "price":"1000",
+   "image":"https://images.unsplash.com/photo-1617493255060-2745a8c22ebf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
+  }
+ ]
+}
