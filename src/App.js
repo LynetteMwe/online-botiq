@@ -2,7 +2,9 @@ import './App.css';
 import NavBar from './Navbar';
 import Main from './Main';
 import Basket from './Basket';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import Payment from './Payment';
 // import Product from './Product';
 
 function App() {
@@ -29,11 +31,21 @@ function App() {
   }
   return (
     <div className="App">
-      <NavBar/>
-      <div className='row'>
-        <Main onAdd={onAdd}/>
-        <Basket onAdd ={onAdd} onRemove={onRemove} cartItems={cartItems}/>
-      </div>
+      <NavBar countCartItems ={cartItems.length}/>
+      <Router>
+        <Switch>
+          <Route exact path='/'>
+            <div className='row'>
+              <Main onAdd={onAdd}/>
+              <Basket onAdd ={onAdd} onRemove={onRemove} cartItems={cartItems}/>
+          </div>
+          </Route>
+          <Route path='./Payment'>
+            <Payment/>
+          </Route>
+
+      </Switch>
+      </Router>
     </div>
   );
 }

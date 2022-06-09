@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Basket = (props) => {
   const {cartItems, onAdd, onRemove} = props;
@@ -11,15 +12,15 @@ const Basket = (props) => {
  <aside className="block col-1">
   <h2>Cart Items</h2>
   <div>{cartItems.length === 0 && <div>Cart is empty</div>}</div>
-  {cartItems.map((product)=>(
-    <div key={product.id} className="row">
-      <div className="col-2">{product.name}</div>
+  {cartItems.map((item)=>(
+    <div key={item.id} className="row">
+      <div className="col-2">{item.name}</div>
       <div className="col-2">
-        <button onClick={()=>onAdd(product)} className="add">+</button> 
-        <button onClick={()=>onRemove(product)} className="remove">-</button>
+        <button onClick={()=>onAdd(item)} className="add">+</button> 
+        <button onClick={()=>onRemove(item)} className="remove">-</button>
       </div>
       <div className="col-2 text-right">
-        {product.qty} x ${product.price.toFixed(2)}
+        {item.qty} x ${itemsPrice.toFixed(2)}
       </div>
       </div>
   ))}
@@ -28,25 +29,23 @@ const Basket = (props) => {
     <hr></hr>
     <div className="row">
       <div className="col-2">Items Price</div>
-      <div className="col-1 text-right">${itemsPrice}</div>
+      <div className="col-1 text-right">${itemsPrice.toFixed(2)}</div>
     </div>
     <div className="row">
       <div className="col-2">Tax Price</div>
-      <div className="col-1 text-right">${taxPrice}</div>
+      <div className="col-1 text-right">${taxPrice.toFixed(2)}</div>
     </div>
     <div className="row">
       <div className="col-2">Shipping Price</div>
-      <div className="col-1 text-right">${shippingPrice}</div>
+      <div className="col-1 text-right">${shippingPrice.toFixed(2)}</div>
     </div>
     <div className="row">
       <div className="col-2"><strong>Total Price</strong></div>
-      <div className="col-1 text-right"><strong>${totalPrice}</strong></div>
+      <div className="col-1 text-right"><strong>${totalPrice.toFixed(2)}</strong></div>
     </div>
     <hr/>
     <div className="row">
-      <button onClick={()=>
-        alert('Implement CheckOut')
-      }>CheckOut</button>
+      <Link to='/Payment' className="check-out">CheckOut</Link>
     </div>
     </>
 
