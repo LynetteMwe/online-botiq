@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {PayPalScriptProvider, PayPalButtons} from '@paypal/react-paypal-js'
 
 const Basket = (props) => {
   const {cartItems, onAdd, onRemove} = props;
@@ -7,7 +7,7 @@ const Basket = (props) => {
   const taxPrice = itemsPrice * 0.14;
   const shippingPrice = itemsPrice > 2000 ? 0:50;
   const totalPrice = itemsPrice + taxPrice + shippingPrice;
-
+  
  return ( 
  <aside className="block col-1">
   <h2>Cart Items</h2>
@@ -44,9 +44,13 @@ const Basket = (props) => {
       <div className="col-1 text-right"><strong>${totalPrice.toFixed(2)}</strong></div>
     </div>
     <hr/>
-    <div className="row">
-      <Link to='/Payment' className="check-out">CheckOut</Link>
-    </div>
+    <PayPalScriptProvider options={{"client-id":
+    "AWtH7VmZEAfpqClEqOGUOOOIUiMMWLAjB126NRYrJxiuVb6Jl_JZ6_PEzRocTPWAwvBQroiqksxl3CGL"}}>
+      <PayPalButtons/>
+    </PayPalScriptProvider>
+    {/* <div className="row">
+      <button onClick={()=>alert('Implement CheckOut')}>CheckOut</button>
+    </div> */}
     </>
 
   )}
